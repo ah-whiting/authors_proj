@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row p-1 justify-content-center">
+    <div class="col-8 p-3">
+      <div class="text-right my-2">
+        <button [routerLink]="['/new']" class="btn btn-secondary">
+          Add an author
+        </button>
+      </div>
+      <h5 class="text-warning my-2">We Have Quotes by:</h5>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Author</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let i of authors">
+            <td scope="row">{{ i.name }}</td>
+            <td>
+              <button
+                class="btn mx-2 btn-warning"
+                [routerLink]="['/quotes', i._id]"
+              >
+                See Quotes
+              </button>
+              <button
+                class="btn mx-2 btn-success"
+                [routerLink]="['/edit', i._id]"
+              >
+                Edit
+              </button>
+              <button class="btn mx-2 btn-danger" (click)="deleteAuthor(i._id)">
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row p-1 justify-content-center">
+      <div class="col-6 p-3">
+        <div class = "text-right my-2">
+          <button [routerLink]="['/']" class="btn btn-secondary">Home</button>
+        </div>
+        <h5 class="text-warning my-2">Add a new Quote</h5>
+        <form class = "p-4 border">
+          <div class="form-group">
+            <label for="">Quote:</label>
+            <input
+              type="text"
+              class="form-control"
+              name= "quote.text"
+              [(ngModel)] = "quote.text"
+            />
+          </div>
+          <button (click) = "updateAuthor()" type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <div *ngIf = "errors">
+          <p class = "my-2 text-danger">{{errors.message}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  

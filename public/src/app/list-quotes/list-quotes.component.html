@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row p-1 justify-content-center">
+    <div class="col-8 p-3">
+      <div class="text-right my-2">
+        <button [routerLink]="['/']" class="mx-2 btn btn-secondary">
+          Home
+        </button>
+        <button [routerLink]="['new']" class="mx-2 btn btn-secondary">
+          Add A Quote
+        </button>
+      </div>
+      <h5 class="text-warning my-2">We Have Quotes by:</h5>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Quote</th>
+            <th>Votes</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let i of author['quotes']; index as idx;">
+            <td scope="row">{{ i.text }}</td>
+            <td scope="row">{{ i.vote }}</td>
+            <td>
+              <button
+                class="btn mx-2 btn-warning"
+                (click) = "vote(idx, 1)"
+              >
+                Vote Up
+              </button>
+              <button
+                class="btn mx-2 btn-success"
+                (click) = "vote(idx, -1)"
+              >
+                Vote Down
+              </button>
+              <button class="btn mx-2 btn-danger" (click)="deleteQuote(idx)">
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
